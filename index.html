@@ -4,10 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conference Ticket Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Inconsolata:wght@200..900&family=Lexend+Deca:wght@100..900&family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    
+    <main>
+        <div class="top-bottom-image-container">
+            <img class="bottom-img" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">
+            <img class="top-img" src="./assets/images/pattern-squiggly-line-top.svg" alt="">
+        </div>
+        <div class="container">
+            <div class="form-container">
+                <img src="./assets/images/logo-full.svg" alt="">
+                <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+                <p>Secure your spot at next year's biggest coding conference.</p>
+                <form action="/">
+                    <div class="avtar-container">
+                        <p class="upload-text">Upload Avtar</>
+                        <div class="input-avtar">
+                            <div class="upload-img-container">
+                                <img src="./assets/images/icon-upload.svg" alt="">
+                            </div>
+                            <p class="drag-and-drop-text">Drag and drop or click to upload</p>
+                        </div>
+                        <div class="pointToFollow">
+                            <img src="./assets/images/icon-info.svg" alt="">
+                            <p class="suitable-formats">Upload your photo (JPG or PNG, max size: 500KB).</p>
+                        </div>
+                    </div>
+                    <div class="fullname-container">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" name="fullName" id="fullName">
+                    </div>
+                    <div class="email-container">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="example@gmail.com">
+                    </div>
+                    <div class="github-container">
+                        <label for="githubUserName">GitHub Username</label>
+                        <input type="text" name="githubUserName" id="githubUserName" placeholder="@yourusername">
+                    </div>
+                    <button>Generate My Ticket</button>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
