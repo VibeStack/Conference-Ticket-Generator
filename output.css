@@ -1,0 +1,281 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    max-width: 1440px;
+    background-image: url('./assets/images/pattern-lines.svg'),url('./assets/images/background-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: "Inconsolata", monospace;
+}
+main{
+    width: 100%;
+}
+.bottom-img{
+    position: absolute;
+    bottom: 0;
+    width: 50vw;
+}
+.top-img{
+    position: absolute;
+    right: 0;
+    width: 25vw;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.text-container{
+    inset: 0;
+    margin: auto;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.text-container>img{
+    display: block;
+    inset: 0;
+    margin: auto;
+    margin-top: 32px;
+}
+.text-container>h1{
+    margin-block: 40px 20px;
+    font-size: 42px;
+}
+.text-container>p{
+    inset: 0;
+    margin: auto;
+    width: 50%;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7)
+}
+.userName{
+    background: linear-gradient(to right, #e67164, white);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.userEmail{
+    background: #e67164;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.card{
+    inset: 0;
+    margin: auto;
+    background-image: url('./assets/images/pattern-ticket.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 500px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.leftData{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+.logodiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+.logodiv>img{
+    width: 250px;
+}
+.logodiv>p{
+    position: relative;
+    bottom: 8px;
+    left: 40px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+}
+.userDetail{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+}
+.userImg img{
+    width: 70px;
+    border-radius: 8px;
+}
+.userData{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+.userData p{
+    margin: 0;
+}
+.userNameText{
+    font-size: 18px;
+}
+.userGithub{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+.githubUsername{
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+}
+.rightData p{
+    font-size: 24px;
+    transform: rotate(90deg);
+    color: rgba(255, 255, 255, 0.4);
+}
+@media (width <= 1064px) and (width > 578px){
+    body{
+        background-image: url('./assets/images/pattern-lines.svg'),url('./assets/images/background-tablet.png');
+        background-repeat: no-repeat;
+    }
+    .bottom-img{
+        left: -10%;
+        width: 50%;
+    }
+    .top-img{
+        width: 25%;
+    }
+    .outputoutput-container h1{
+        font-size: 42px;
+    }
+    .outputoutput-container>p{
+        margin-inline: 20px;
+    }
+    .text-container>img{
+        display: block;
+        inset: 0;
+        margin: auto;
+        margin-top: 48px;
+        width: 300px;
+    }
+    .text-container>h1{
+        margin-block: 48px;
+        font-size: 36px;
+    }
+    .text-container>p{
+        inset: 0;
+        margin: auto;
+        width: 60%;
+        font-size: 18px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.7)
+    }
+}
+@media (width <= 578px){
+    body{
+        background-image: url('./assets/images/pattern-lines.svg'),url('./assets/images/background-mobile.png');
+        background-repeat: no-repeat;
+    }
+    .bottom-img{
+        transform: scale(1.2);
+        transform-origin: 0 100%;
+        left: -10%;
+        width: 60%; 
+    }
+    .top-img{
+        width: 30%; 
+    }
+    .text-container{
+        margin-bottom: 150px;
+    }
+    .text-container h1{
+        margin-block: 48px;
+        margin-inline: 20px;
+        font-size: 32px;
+    }
+    .text-container>p{
+        font-size: 14px; 
+        width: 80%; 
+    }
+    .card{
+        width: 250px;
+        height: 120px;
+    }
+    .leftData{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+    }
+    .logodiv{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+    .logodiv>img{
+        width: 150px;
+    }
+    .logodiv>p{
+        position: relative;
+        bottom: 8px;
+        left: 32px;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.4);
+    }
+    .userDetail{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+    .userImg img{
+        width: 30px;
+        border-radius: 4px;
+    }
+    .userData{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .userData p{
+        margin: 0;
+    }
+    .userNameText{
+        font-size: 10px;
+    }
+    .userGithub{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+    }
+    .githubLink img{
+        width: 16px;
+    }
+    .githubUsername{
+        font-size: 8px;
+        color: rgba(255, 255, 255, 0.4);
+    }
+    .rightData p{
+        font-size: 14px;
+        transform: rotate(90deg);
+        color: rgba(255, 255, 255, 0.4);
+    }
+}

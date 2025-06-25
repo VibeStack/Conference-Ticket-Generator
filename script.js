@@ -92,5 +92,3 @@ form.addEventListener('submit', function(e) {
 emailInput.addEventListener('input',()=>{
     errorMessegeEmail.style.opacity = 0;
 })
-
-
