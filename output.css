@@ -51,7 +51,7 @@ main{
     font-weight: 300;
     color: rgba(255, 255, 255, 0.7)
 }
-.userName{
+h1 .username{
     background: linear-gradient(to right, #e67164, white);
     background-clip: text;
     -webkit-background-clip: text;
@@ -125,6 +125,8 @@ main{
     font-size: 18px;
 }
 .userGithub{
+    z-index: 2;
+    cursor: pointer;
     display: flex;
     justify-content: flex-start;
     align-items: center;

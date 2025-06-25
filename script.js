@@ -11,10 +11,14 @@ beforeUpload.addEventListener('click',(e)=>{
 
 const errorImg = document.querySelector('.pointToFollow img');
 const errorMessege = document.querySelector('.pointToFollow p');
+const userImageLink = document.querySelector('.userImageLink');
 let fileExist = false;
+
+let user = localStorage.setItem('userData','');
+
 function fileUploadFunction(file){
     const maxSize = 500 * 1024;
-    const validTypes = ['image/jpg', 'image/png'];
+    const validTypes = ['image/png', 'image/jpeg'];
     document.querySelector('.after-upload-img img').src = './assets/images/image-avatar.jpg';
 
     if(file){
@@ -31,7 +35,8 @@ function fileUploadFunction(file){
             beforeUpload.style.display = 'none';
             afterUpload.style.display = 'flex';
             const imgURL = URL.createObjectURL(file);
-            document.querySelector('.after-upload-img img').src = imgURL;
+            userImageLink.src = imgURL;
+            console.log(userImageLink.src);
         }
         fileExist = true;
     }
@@ -57,7 +62,7 @@ inputAvtar.addEventListener('drop',(e)=>{
 
 uploadBtn.addEventListener('click',()=>{
     errorImg.src = './assets/images/icon-info.svg';
-    errorMessege.innerText = 'Upload your photo (JPG or PNG, max size: 500KB).';
+    errorMessege.innerText = 'Upload your photo (JPEG or PNG, max size: 500KB).';
     errorMessege.style.color = 'white';
 })
 uploadBtn.addEventListener('change',(e)=>{
@@ -87,7 +92,14 @@ submitBtn.addEventListener('click',()=>{
         errorMessege.style.color = 'red';
     }
     if(fileExist && email.value.toLowerCase().endsWith('@gmail.com')){
-        submitBtn.href = './output.html';
+        user = {
+            name: `${fullName.value}`,
+            email: `${email.value}`,
+            githubUsername: `${githubUsername.value}`,
+            image: `${userImageLink.src}`
+        }
+        localStorage.setItem('userDetails',JSON.stringify(user));
+        submitBtn.children[0].href = './output.html';
     }
 })
 email.addEventListener('input',()=>{
