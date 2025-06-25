@@ -11,7 +11,7 @@ beforeUpload.addEventListener('click',(e)=>{
 
 const errorImg = document.querySelector('.pointToFollow img');
 const errorMessege = document.querySelector('.pointToFollow p');
-
+let fileExist = false;
 function fileUploadFunction(file){
     const maxSize = 500 * 1024;
     const validTypes = ['image/jpg', 'image/png'];
@@ -33,6 +33,7 @@ function fileUploadFunction(file){
             const imgURL = URL.createObjectURL(file);
             document.querySelector('.after-upload-img img').src = imgURL;
         }
+        fileExist = true;
     }
     else{
         alert("Please select a valid image file.");
@@ -71,24 +72,28 @@ changeAddedImage.addEventListener('click',()=>{
     uploadBtn.click();
 })
 
-
-const form = document.querySelector('form');
-const emailInput = document.querySelector('#email');
+const fullName = document.querySelector('#fullName');
+const email = document.querySelector('#email');
+const githubUsername = document.querySelector('#githubUserName');
 const errorMessegeEmail = document.querySelector('.error-messege');
+const submitBtn = document.querySelector('.submit-btn');
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const email = emailInput.value.trim();
-
-    if (!email.toLowerCase().endsWith("@gmail.com")) {
+submitBtn.addEventListener('click',()=>{
+    if(!email.value.toLowerCase().endsWith('@gmail.com')){
         errorMessegeEmail.style.opacity = 1;
-        emailInput.value = "";
-    } 
-    else{
-        alert("Form submitted successfully!");
+    }
+    if(!fileExist){
+        errorImg.src = './assets/images/icon-info-red.svg';
+        errorMessege.style.color = 'red';
+    }
+    if(fileExist && email.value.toLowerCase().endsWith('@gmail.com')){
+        submitBtn.href = './output.html';
     }
 })
-emailInput.addEventListener('input',()=>{
+email.addEventListener('input',()=>{
     errorMessegeEmail.style.opacity = 0;
+})
+beforeUpload.addEventListener('click',()=>{
+    errorImg.src = './assets/images/icon-info.svg';
+    errorMessege.style.color = 'white';
 })

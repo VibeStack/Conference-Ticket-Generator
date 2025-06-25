@@ -21,7 +21,7 @@
                 <img src="./assets/images/logo-full.svg" alt="">
                 <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
                 <p>Secure your spot at next year's biggest coding conference.</p>
-                <form action="/">
+                <div class="form-structure">
                     <div class="avtar-container">
                         <p class="upload-text">Upload Avtar</>
                         <div class="input-avtar">
@@ -49,11 +49,11 @@
                     </div>
                     <div class="fullname-container">
                         <label for="fullName">Full Name</label>
-                        <input type="text" name="fullName" id="fullName" required>
+                        <input type="text" name="fullName" id="fullName">
                     </div>
                     <div class="email-container">
                         <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+                        <input type="email" name="email" id="email" placeholder="example@gmail.com">
                         <div class="error-messege">
                             <img src="./assets/images/icon-info-red.svg" alt="">
                             <p>Please Enter a valid Email Address</p>
@@ -61,10 +61,10 @@
                     </div>
                     <div class="github-container">
                         <label for="githubUserName">GitHub Username</label>
-                        <input type="text" name="githubUserName" id="githubUserName" required placeholder="@yourusername">
+                        <input type="text" name="githubUserName" id="githubUserName" placeholder="@yourusername">
                     </div>
-                    <button>Generate My Ticket</button>
-                </form>
+                    <a class="submit-btn" href="#">Generate My Ticket</a>
+                </>
             </div>
         </div>
     </main>
