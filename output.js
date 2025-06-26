@@ -4,6 +4,7 @@ const userEmail = document.querySelector('.userEmail');
 const githubUsername = document.querySelector('.githubUsername');
 const githubLink = document.querySelector('.githubLink');
 const userImg = document.querySelector('.userImg img');
+const userId = document.querySelector('.rightData p');
 
 const fullDate = new Date();
 
@@ -24,7 +25,7 @@ userEmail.innerText = userData.email;
 githubUsername.innerText = userData.githubUsername;
 githubLink.src = `https://github.com/${githubUsername.innerText}/`;
 userImg.src = `${userData.image}`
-
+userId.innerText = `#${userData.id}`
 githubLink.addEventListener('click',()=>{
     location.href = `${githubLink.src}`;
 })

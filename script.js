@@ -84,7 +84,7 @@ const email = document.querySelector('#email');
 const githubUsername = document.querySelector('#githubUserName');
 const errorMessegeEmail = document.querySelector('.error-messege');
 const submitBtn = document.querySelector('.submit-btn');
-
+let userId = String(Math.floor(Math.random()*10000) + 1).padStart(5,'0');
 submitBtn.addEventListener('click',()=>{
     if(!email.value.toLowerCase().endsWith('@gmail.com')){
         errorMessegeEmail.style.opacity = 1;
@@ -95,6 +95,7 @@ submitBtn.addEventListener('click',()=>{
     }
     if(fileExist && email.value.toLowerCase().endsWith('@gmail.com')){
         const user = {
+            id: `${userId}`,
             name: `${fullName.value}`,
             email: `${email.value}`,
             githubUsername: `${githubUsername.value}`,
@@ -109,7 +110,6 @@ submitBtn.addEventListener('click',()=>{
     userImageLink.src = './assets/images/image-avatar.jpg';
     fileExist = false;
 
-    // Reset UI
     beforeUpload.style.display = 'flex';
     afterUpload.style.display = 'none';
     errorMessegeEmail.style.opacity = 0;
