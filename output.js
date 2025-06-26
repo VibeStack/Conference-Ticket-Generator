@@ -5,6 +5,18 @@ const githubUsername = document.querySelector('.githubUsername');
 const githubLink = document.querySelector('.githubLink');
 const userImg = document.querySelector('.userImg img');
 
+const fullDate = new Date();
+
+const date = document.querySelector('.date');
+date.innerText = fullDate.getDate();
+
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const month = document.querySelector('.month');
+month.innerText = monthNames[fullDate.getMonth()]+" ";
+
+const year = document.querySelector('.year');
+year.innerText = fullDate.getFullYear();
+
 username.forEach((name)=>{
     name.innerText = userData.name;
 })

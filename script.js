@@ -14,11 +14,9 @@ const errorMessege = document.querySelector('.pointToFollow p');
 const userImageLink = document.querySelector('.userImageLink');
 let fileExist = false;
 
-let user = localStorage.setItem('userData','');
-
 function fileUploadFunction(file){
     const maxSize = 500 * 1024;
-    const validTypes = ['image/png', 'image/jpeg'];
+    const validTypes = ['image/png', 'image/jpg'];
     document.querySelector('.after-upload-img img').src = './assets/images/image-avatar.jpg';
 
     if(file){
@@ -34,9 +32,13 @@ function fileUploadFunction(file){
         else{
             beforeUpload.style.display = 'none';
             afterUpload.style.display = 'flex';
-            const imgURL = URL.createObjectURL(file);
-            userImageLink.src = imgURL;
-            console.log(userImageLink.src);
+
+            const reader = new FileReader();
+            reader.onload = function(e){
+                const base64Data = e.target.result;
+                userImageLink.src = base64Data;
+            }
+            reader.readAsDataURL(file)
         }
         fileExist = true;
     }
@@ -62,7 +64,7 @@ inputAvtar.addEventListener('drop',(e)=>{
 
 uploadBtn.addEventListener('click',()=>{
     errorImg.src = './assets/images/icon-info.svg';
-    errorMessege.innerText = 'Upload your photo (JPEG or PNG, max size: 500KB).';
+    errorMessege.innerText = 'Upload your photo (JPG or PNG, max size: 500KB).';
     errorMessege.style.color = 'white';
 })
 uploadBtn.addEventListener('change',(e)=>{
@@ -92,7 +94,7 @@ submitBtn.addEventListener('click',()=>{
         errorMessege.style.color = 'red';
     }
     if(fileExist && email.value.toLowerCase().endsWith('@gmail.com')){
-        user = {
+        const user = {
             name: `${fullName.value}`,
             email: `${email.value}`,
             githubUsername: `${githubUsername.value}`,
@@ -101,6 +103,18 @@ submitBtn.addEventListener('click',()=>{
         localStorage.setItem('userDetails',JSON.stringify(user));
         submitBtn.children[0].href = './output.html';
     }
+    fullName.value = '';
+    email.value = '';
+    githubUsername.value = '';
+    userImageLink.src = './assets/images/image-avatar.jpg';
+    fileExist = false;
+
+    // Reset UI
+    beforeUpload.style.display = 'flex';
+    afterUpload.style.display = 'none';
+    errorMessegeEmail.style.opacity = 0;
+    errorMessege.style.color = 'white';
+    errorImg.src = './assets/images/icon-info.svg';
 })
 email.addEventListener('input',()=>{
     errorMessegeEmail.style.opacity = 0;
