@@ -7,6 +7,8 @@ const changeAddedImage = document.querySelector('.change-added-image');
 
 beforeUpload.addEventListener('click',(e)=>{
     uploadBtn.click();
+    errorImg.src = './assets/images/icon-info.svg';
+    errorMessege.style.color = 'white';
 })
 
 const errorImg = document.querySelector('.pointToFollow img');
@@ -118,8 +120,4 @@ submitBtn.addEventListener('click',()=>{
 })
 email.addEventListener('input',()=>{
     errorMessegeEmail.style.opacity = 0;
-})
-beforeUpload.addEventListener('click',()=>{
-    errorImg.src = './assets/images/icon-info.svg';
-    errorMessege.style.color = 'white';
 })
