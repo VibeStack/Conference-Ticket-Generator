@@ -23,9 +23,12 @@ const errorMessege = document.querySelector('.pointToFollow p');
 const userImageLink = document.querySelector('.userImageLink');
 
 function fileUploadFunction(file){
+    pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
+    pointToFollowText.style.color = 'white';
+    pointToFollowImg.src = './assets/images/icon-info.svg';
+    
     const maxSize = 500 * 1024;
     const validTypes = ['image/png', 'image/jpg', 'image/jpeg'];
-    document.querySelector('.after-upload-img img').src = './assets/images/image-avatar.jpg';
 
     if(file){
         if(!validTypes.includes(file.type)){
