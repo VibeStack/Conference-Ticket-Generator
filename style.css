@@ -80,6 +80,7 @@ main{
     outline-offset: -4px;
 }
 .before-upload{ 
+    cursor: pointer;
     width: 100%;                                    /* Field Before Uploading Image*/
     display: flex;
     flex-direction: column;
@@ -92,9 +93,6 @@ main{
     visibility: 0.2;
     border-radius: 12px;
     border: 1px solid rgb(186, 186, 186);
-}
-#select-file-to-upload{
-    display: none;
 }
 .after-upload{   
     width: 100%;                                  

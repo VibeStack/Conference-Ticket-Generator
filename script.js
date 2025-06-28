@@ -13,6 +13,7 @@ beforeUpload.addEventListener('click',(e)=>{
     pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
     pointToFollowText.style.color = 'white';
     pointToFollowImg.src = './assets/images/icon-info.svg';
+    console.log('hi');
 })
 uploadBtn.addEventListener('click',(e)=>{
     e.stopPropagation();
@@ -26,7 +27,7 @@ function fileUploadFunction(file){
     pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
     pointToFollowText.style.color = 'white';
     pointToFollowImg.src = './assets/images/icon-info.svg';
-    
+
     const maxSize = 500 * 1024;
     const validTypes = ['image/png', 'image/jpg', 'image/jpeg'];
 
@@ -61,25 +62,25 @@ function fileUploadFunction(file){
         alert("Please select a valid image file.");
     }
 }
-['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName=>{
-    inputAvtar.addEventListener(eventName,(e)=>{
-        e.preventDefault();
-    })
-});
-inputAvtar.addEventListener('dragover',()=>{
-  inputAvtar.classList.add('dragover');
-})
 
-inputAvtar.addEventListener('dragleave',()=>{
-  inputAvtar.classList.remove('dragover');
+inputAvtar.addEventListener('dragover',(e)=>{
+    e.preventDefault();
+    inputAvtar.classList.add('dragover');
+    console.log('dragover');
+})
+inputAvtar.addEventListener('dragleave',(e)=>{
+    e.preventDefault();
+    inputAvtar.classList.remove('dragover');
+    console.log('dragleave');
 })
 inputAvtar.addEventListener('drop',(e)=>{
-    fileUploadFunction(e.dataTransfer.files[0])
+    e.preventDefault();
+    console.log('drop');
+    inputAvtar.classList.remove('dragover');
+    fileUploadFunction(e.dataTransfer.files[0]);
 })
-
 uploadBtn.addEventListener('change',(e)=>{
-    fileUploadFunction(e.target.files[0])
-
+    fileUploadFunction(e.target.files[0]);
 })
 removeAddedImage.addEventListener('click',(e)=>{
     beforeUpload.style.display = 'flex';
