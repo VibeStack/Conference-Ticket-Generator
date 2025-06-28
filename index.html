@@ -24,13 +24,13 @@
                 <div class="form-structure">
                     <div class="avtar-container">
                         <p class="upload-text">Upload Avtar</>
-                        <div class="input-avtar">
-                            <div class="before-upload">
-                                <div class="upload-img-container">
-                                    <img src="./assets/images/icon-upload.svg" alt="">
-                                </div>
-                                <input type="file" name="select-file-to-upload" id="select-file-to-upload" accept="image/jpg, image/png">
-                                <p class="drag-and-drop-text">Drag and drop or click to upload</p>
+                            <div class="input-avtar">
+                                <div class="before-upload">
+                                    <div class="upload-img-container">
+                                            <img src="./assets/images/icon-upload.svg" alt="">
+                                        </div>
+                                        <p class="drag-and-drop-text">Drag and drop or click to upload</p>
+                                    <input type="file" name="select-file-to-upload" id="select-file-to-upload" accept="image/png,image/jpeg,image/jpg">
                             </div>
                             <div class="after-upload">
                                 <div class="after-upload-img">
@@ -49,11 +49,11 @@
                     </div>
                     <div class="fullname-container">
                         <label for="fullName">Full Name</label>
-                        <input type="text" name="fullName" id="fullName">
+                        <input type="text" name="fullName" id="fullName" autocomplete="name">
                     </div>
                     <div class="email-container">
                         <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="example@gmail.com">
+                        <input type="email" name="email" id="email" placeholder="example@gmail.com" autocomplete="email">
                         <div class="error-messege">
                             <img src="./assets/images/icon-info-red.svg" alt="">
                             <p>Please Enter a valid Email Address</p>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="github-container">
                         <label for="githubUserName">GitHub Username</label>
-                        <input type="text" name="githubUserName" id="githubUserName" placeholder="@yourusername">
+                        <input type="text" name="githubUserName" id="githubUserName" placeholder="@yourusername" autocomplete="username">
                     </div>
                     <div class="submit-btn">
                         <a href="#">Generate My Ticket</a>

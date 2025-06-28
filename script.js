@@ -4,17 +4,23 @@ const inputAvtar = document.querySelector('.input-avtar');
 const removeAddedImage = document.querySelector('.remove-added-image');
 const uploadBtn = document.querySelector('#select-file-to-upload');
 const changeAddedImage = document.querySelector('.change-added-image');
+const pointToFollowImg = document.querySelector('.pointToFollow img');
+const pointToFollowText = document.querySelector('.suitable-formats');
+let fileExist = false;
 
 beforeUpload.addEventListener('click',(e)=>{
     uploadBtn.click();
-    errorImg.src = './assets/images/icon-info.svg';
-    errorMessege.style.color = 'white';
+    pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
+    pointToFollowText.style.color = 'white';
+    pointToFollowImg.src = './assets/images/icon-info.svg';
+})
+uploadBtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
 })
 
 const errorImg = document.querySelector('.pointToFollow img');
 const errorMessege = document.querySelector('.pointToFollow p');
 const userImageLink = document.querySelector('.userImageLink');
-let fileExist = false;
 
 function fileUploadFunction(file){
     const maxSize = 500 * 1024;
@@ -23,6 +29,7 @@ function fileUploadFunction(file){
 
     if(file){
         if(!validTypes.includes(file.type)){
+
             errorImg.src = './assets/images/icon-info-red.svg';
             errorMessege.style.color = 'red';
         }
@@ -41,10 +48,13 @@ function fileUploadFunction(file){
                 userImageLink.src = base64Data;
             }
             reader.readAsDataURL(file)
+            fileExist = true;
         }
-        fileExist = true;
     }
     else{
+        beforeUpload.style.display = 'flex';
+        afterUpload.style.display = 'none';
+        fileExist = false;
         alert("Please select a valid image file.");
     }
 }
@@ -64,11 +74,6 @@ inputAvtar.addEventListener('drop',(e)=>{
     fileUploadFunction(e.dataTransfer.files[0])
 })
 
-uploadBtn.addEventListener('click',()=>{
-    errorImg.src = './assets/images/icon-info.svg';
-    errorMessege.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).';
-    errorMessege.style.color = 'white';
-})
 uploadBtn.addEventListener('change',(e)=>{
     fileUploadFunction(e.target.files[0])
 
@@ -76,8 +81,10 @@ uploadBtn.addEventListener('change',(e)=>{
 removeAddedImage.addEventListener('click',(e)=>{
     beforeUpload.style.display = 'flex';
     afterUpload.style.display = 'none';
+    fileExist = false;
 })
 changeAddedImage.addEventListener('click',()=>{
+    fileExist = false;
     uploadBtn.click();
 })
 
@@ -87,6 +94,7 @@ const githubUsername = document.querySelector('#githubUserName');
 const errorMessegeEmail = document.querySelector('.error-messege');
 const submitBtn = document.querySelector('.submit-btn');
 let userId = String(Math.floor(Math.random()*10000) + 1).padStart(5,'0');
+
 submitBtn.addEventListener('click',()=>{
     if(!email.value.toLowerCase().endsWith('@gmail.com')){
         errorMessegeEmail.style.opacity = 1;
@@ -104,19 +112,10 @@ submitBtn.addEventListener('click',()=>{
             image: `${userImageLink.src}`
         }
         localStorage.setItem('userDetails',JSON.stringify(user));
+        document.querySelectorAll('input').forEach(input => input.value = '');
         submitBtn.children[0].href = './output.html';
     }
-    fullName.value = '';
-    email.value = '';
-    githubUsername.value = '';
-    userImageLink.src = './assets/images/image-avatar.jpg';
-    fileExist = false;
 
-    beforeUpload.style.display = 'flex';
-    afterUpload.style.display = 'none';
-    errorMessegeEmail.style.opacity = 0;
-    errorMessege.style.color = 'white';
-    errorImg.src = './assets/images/icon-info.svg';
 })
 email.addEventListener('input',()=>{
     errorMessegeEmail.style.opacity = 0;
