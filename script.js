@@ -16,7 +16,7 @@ let fileExist = false;
 
 function fileUploadFunction(file){
     const maxSize = 500 * 1024;
-    const validTypes = ['image/png', 'image/jpg'];
+    const validTypes = ['image/png', 'image/jpg', 'image/jpeg'];
     document.querySelector('.after-upload-img img').src = './assets/images/image-avatar.jpg';
 
     if(file){
@@ -64,7 +64,7 @@ inputAvtar.addEventListener('drop',(e)=>{
 
 uploadBtn.addEventListener('click',()=>{
     errorImg.src = './assets/images/icon-info.svg';
-    errorMessege.innerText = 'Upload your photo (JPG or PNG, max size: 500KB).';
+    errorMessege.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).';
     errorMessege.style.color = 'white';
 })
 uploadBtn.addEventListener('change',(e)=>{
