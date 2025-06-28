@@ -13,7 +13,6 @@ beforeUpload.addEventListener('click',(e)=>{
     pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
     pointToFollowText.style.color = 'white';
     pointToFollowImg.src = './assets/images/icon-info.svg';
-    console.log('hi');
 })
 uploadBtn.addEventListener('click',(e)=>{
     e.stopPropagation();
