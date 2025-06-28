@@ -61,23 +61,23 @@ function fileUploadFunction(file){
         alert("Please select a valid image file.");
     }
 }
+['dragover','dragleave','drop'].forEach((eventName)=>{
+    inputAvtar.addEventListener(eventName,(e)=>{
+        e.preventDefault();
+    })
+})
 
 inputAvtar.addEventListener('dragover',(e)=>{
-    e.preventDefault();
     inputAvtar.classList.add('dragover');
-    console.log('dragover');
 })
 inputAvtar.addEventListener('dragleave',(e)=>{
-    e.preventDefault();
     inputAvtar.classList.remove('dragover');
-    console.log('dragleave');
 })
 inputAvtar.addEventListener('drop',(e)=>{
-    e.preventDefault();
-    console.log('drop');
     inputAvtar.classList.remove('dragover');
     fileUploadFunction(e.dataTransfer.files[0]);
 })
+
 uploadBtn.addEventListener('change',(e)=>{
     console.log(e.target.files[0]);
     fileUploadFunction(e.target.files[0]);
