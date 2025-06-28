@@ -8,15 +8,15 @@ const pointToFollowImg = document.querySelector('.pointToFollow img');
 const pointToFollowText = document.querySelector('.suitable-formats');
 let fileExist = false;
 
+uploadBtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+})
 beforeUpload.addEventListener('click',(e)=>{
     uploadBtn.click();
-    // pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
-    // pointToFollowText.style.color = 'white';
-    // pointToFollowImg.src = './assets/images/icon-info.svg';
+    pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
+    pointToFollowText.style.color = 'white';
+    pointToFollowImg.src = './assets/images/icon-info.svg';
 })
-// uploadBtn.addEventListener('click',(e)=>{
-//     e.stopPropagation();
-// })
 
 const errorImg = document.querySelector('.pointToFollow img');
 const errorMessege = document.querySelector('.pointToFollow p');
@@ -79,8 +79,10 @@ inputAvtar.addEventListener('drop',(e)=>{
     fileUploadFunction(e.dataTransfer.files[0]);
 })
 uploadBtn.addEventListener('change',(e)=>{
+    console.log(e.target.files[0]);
     fileUploadFunction(e.target.files[0]);
 })
+
 removeAddedImage.addEventListener('click',(e)=>{
     beforeUpload.style.display = 'flex';
     afterUpload.style.display = 'none';
