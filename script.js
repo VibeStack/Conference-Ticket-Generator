@@ -10,13 +10,13 @@ let fileExist = false;
 
 beforeUpload.addEventListener('click',(e)=>{
     uploadBtn.click();
-    pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
-    pointToFollowText.style.color = 'white';
-    pointToFollowImg.src = './assets/images/icon-info.svg';
+    // pointToFollowText.innerText = 'Upload your photo (JPG, JPEG or PNG, max size: 500KB).'
+    // pointToFollowText.style.color = 'white';
+    // pointToFollowImg.src = './assets/images/icon-info.svg';
 })
-uploadBtn.addEventListener('click',(e)=>{
-    e.stopPropagation();
-})
+// uploadBtn.addEventListener('click',(e)=>{
+//     e.stopPropagation();
+// })
 
 const errorImg = document.querySelector('.pointToFollow img');
 const errorMessege = document.querySelector('.pointToFollow p');
